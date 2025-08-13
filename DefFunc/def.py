@@ -158,7 +158,7 @@ print(merge(numbers1, numbers2))'''
 res = is_valid_triangle(2, 3, 10)
 print(res)'''
 
-def is_prime(num):
+'''def is_prime(num):
     if (num % 2 == 0):
         return False
     else:
@@ -167,4 +167,5 @@ def is_prime(num):
 n = int(input())
 
 # вызываем функцию
-print(is_prime(n))
+print(is_prime(n))'''
+
