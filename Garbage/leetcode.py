@@ -25,3 +25,34 @@
 
 romanToInt('MCM')'''
 
+'''def simple_multiplication(number) :
+    if number % 2 == 0:
+        return number * 8
+    else:
+        return number * 9
+
+print(simple_multiplication(3))
+'''
+
+'''def narcissistic(value):
+    power, summa, digits_list = 0, 0, []
+    original_value = value
+    while value != 0:
+        digit = value % 10
+        digits_list.insert(0, digit)
+        value //= 10
+        power += 1
+    for el in digits_list:
+        summa += el ** power
+    if summa == original_value:
+        return True
+    else:
+        return False
+
+print(narcissistic(1938))'''
+
+'''def remove_char(s):
+    return s[1:-1]
+
+a = remove_char('')
+print(a)'''
