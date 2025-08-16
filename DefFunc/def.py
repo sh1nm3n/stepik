@@ -158,14 +158,57 @@ print(merge(numbers1, numbers2))'''
 res = is_valid_triangle(2, 3, 10)
 print(res)'''
 
-'''def is_prime(num):
-    if (num % 2 == 0):
+'''def is_prime(number):
+    if number < 2:  # Числа меньше 2 не являются простыми
         return False
-    else:
+    for i in range(2, int(number ** 0.5) + 1):  # Проверяем делители до корня из числа
+        if number % i == 0:  # Если найден делитель
+            return False
+    return True
+
+def get_next_prime(num):
+    next_num = num + 1
+    while True:
+        if is_prime(next_num):
+            return next_num
+        next_num += 1
+
+
+print(get_next_prime(6))  # 7
+print(get_next_prime(7))  # 11
+print(get_next_prime(14))'''
+
+'''def is_password_good(password):
+    count, lower, l_count, upper, r_count, d_count = 0, 'abcdefghijklmnopqrstuvwxyz', 0, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 0, 0
+    if (len(password) >= 8):
+        count += 1
+    for el in range(len(password)):
+        if password[el] in lower:
+            l_count += 1
+            if l_count == 1:
+                count += 1
+    for el in range(len(password)):
+        if password[el] in upper:
+            r_count += 1
+            if r_count == 1:
+                count += 1
+    for el in range(len(password)):
+        if password[el].isdigit():
+            d_count += 1
+            if d_count == 1:
+                count += 1
+    if count == 4:
         return True
+    else:
+        return False'''
 
-n = int(input())
-
-# вызываем функцию
-print(is_prime(n))'''
+def is_one_away(word1, word2):
+    if len(word1) == len(word2):
+        count = 0
+        for i in range(len(word1)):
+            if word1[i] == word2[i]:
+                count += 1
+        if len(word1) - count == 1:
+            return True
+    return False
 
