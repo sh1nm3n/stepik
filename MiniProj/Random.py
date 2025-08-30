@@ -1,4 +1,5 @@
 from random import *
+from math import *
 
 '''num1 = randint(0, 20)
 num2 = randint(-20, 0)
@@ -55,14 +56,46 @@ print(choice(['a', 'b', 'c']))'''
 print(sample([1, 2, 3, 4, 5], 3))
 print(sample(['a', 'b', 'c'], 1))'''
 
+'''
 random_num = randint(1, 10)
 user_num = int(input('Угадайка. Введите число от 1 до 10: '))
 
 while random_num != user_num:
     if user_num > random_num:
         print('Твое число больше рандомного.')
-        user_num = int(input('Пробуй дальше!'))
+        user_num = int(input('Пробуй дальше! - '))
     elif user_num < random_num:
         print('Твое число меньше рандомного.')
-    elif user_num == random_num:
-        print('Молодец! Ты угадал.')
+        user_num = int(input('Пробуй дальше! - '))
+else:
+    print('Молодец! Ты угадал.')'''
+
+def is_valid(s):
+    return True if s.isdigit() and 1 <= int(s) <= 100 else False
+
+random_num = randint(1, 100)
+tries = 0
+print('Добро пожаловать в числовую угадайку')
+
+while True:
+    user_input = input('Введите число от 1 до 100: ')
+    if is_valid(user_input) == False:
+        print('А может быть все-таки введем целое число от 1 до 100?')
+        continue
+    user_input = int(user_input)
+    if user_input < random_num:
+        print('Ваше число меньше загаданного, попробуйте еще разок')
+        tries += 1
+    elif user_input > random_num:
+        print('Ваше число больше загаданного, попробуйте еще разок')
+        tries += 1
+    elif user_input == random_num:
+        tries += 1
+        print(f'\nВы угадали, поздравляем!\nСтолько попыток у вас ушло: {tries}\n')
+        msg_input = input('Спасибо, что играли в числовую угадайку. Хотите продолжить?\nДА - continue | НЕТ - stop: ')
+        if msg_input == 'continue':
+            random_num = randint(1, 100)
+            tries = 0
+            continue
+        elif msg_input == 'stop':
+            break
